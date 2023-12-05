@@ -15,7 +15,7 @@ int main()
 {
 	point p[CNT];
 
-	srand(time(0));
+	srand(time(NULL));
 	for (int i = 0; i < CNT; i++)
 	{
 		p[i].x = rand() % 1000;
@@ -23,17 +23,15 @@ int main()
 	}
 
 
-	double min = 1000;
-	int min_i;
-	int min_j;
-	for (int i = 0; i < CNT; i++)
-	{
-		for (int j = 0; j < CNT; j++)
-		{
+	double min = INT_MAX;
+	int min_i, min_j;
+	for (int i = 0; i < CNT; i++){
+		for (int j = 0; j < CNT; j++){
 			if (i != j && min > distance(p[i], p[j])) {
+				min = distance(p[i], p[j]);
 				min_i = i;
 				min_j = j;
-				min = distance(p[i], p[j]);
+				
 			}
 		}
 	}
